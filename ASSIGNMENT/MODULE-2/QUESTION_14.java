@@ -5,7 +5,7 @@
 
 package assignment_module_2;
 
-public class QUESTION_14 {
+public class Question_14 {
 	
 	public static void main(String[] args) {
 		
