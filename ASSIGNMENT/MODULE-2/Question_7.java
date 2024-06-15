@@ -12,9 +12,9 @@ public class Question_7 {
 	
 	public static void main(String[] args) {
 		
-		int i, j, n=1;
+		int j, n=1;
 		
-		for(i=0; i<4; i++)
+		for(int i=0; i<4; i++)
 		{
 			for(j=0; j<=i; j++)
 			{
