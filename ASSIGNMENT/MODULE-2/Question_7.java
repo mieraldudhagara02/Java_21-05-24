@@ -12,14 +12,13 @@ public class Question_7 {
 	
 	public static void main(String[] args) {
 		
-		int j, n=1;
+		int n=1;
 		
 		for(int i=0; i<4; i++)
 		{
-			for(j=0; j<=i; j++)
+			for(int j=0; j<=i; j++)
 			{
-				System.out.print(n+" ");
-				n++;
+				System.out.print(n++ +" ");
 			}
 			System.out.println();
 		}

@@ -12,7 +12,7 @@ public class Question_3 {
 		
 		Scanner leapYear = new Scanner(System.in);
 		
-		System.out.println("Enter a Year : ");
+		System.out.println("Enter the Year : ");
 		int year = leapYear.nextInt();
 		
 		if(year%4==0)

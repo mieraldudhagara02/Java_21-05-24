@@ -23,6 +23,21 @@ public class Question_1 {
 		System.out.println("Enter Third Number : ");
 		int numThree = max.nextInt();
 		
+		
+		/*if(numOne > numTwo && numOne > numThree)
+		{
+			System.out.println("\nNumber One is Greater : "+numOne);
+		}
+		else if(numTwo > numOne && numTwo > numThree)
+		{
+			System.out.println("\nNumber Two is Greater : "+numTwo);
+		}
+		else
+		{
+			System.out.println("\nNumber Three is Greater : "+numThree);
+		}*/
+		
+		
 		if(numOne > numTwo)
 		{
 			if(numOne > numThree)
