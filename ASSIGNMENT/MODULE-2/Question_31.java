@@ -9,6 +9,61 @@
 
 package assignment_module_2;
 
+abstract class Marks
+{
+	abstract int getPercentage();
+}
+
+class A extends Marks
+{
+	int sub1;
+	int sub2;
+	int sub3;
+	
+	A (int sub1, int sub2, int sub3)
+	{
+		this.sub1 = sub1;
+		this.sub2 = sub2;
+		this.sub3 = sub3;
+	}
+	
+	int getPercentage()
+	{
+		return (sub1 + sub2 + sub3) / 3;
+	}
+}
+
+class B extends Marks
+{	
+	int sub1;
+	int sub2;
+	int sub3;
+	int sub4; 
+	
+	B (int sub1, int sub2, int sub3, int sub4)
+	{
+		this.sub1 = sub1;
+		this.sub2 = sub2;
+		this.sub3 = sub3;
+		this.sub4 = sub4;
+	}
+	
+	int getPercentage()
+	{
+		return (sub1 + sub2 + sub3 + sub4) / 4;
+	}
+}
+
 public class Question_31 {
+	
+	public static void main(String[] args) {
+		
+		A student1 = new A(80, 75, 60);
+		System.out.println("Percentange of Student A : " + student1.getPercentage() + "%");
+		
+		B student2 = new B(80, 75, 60, 85);
+		System.out.println("Percentange of Student B : " + student2.getPercentage() + "%");
+		
+	}
 
 }
