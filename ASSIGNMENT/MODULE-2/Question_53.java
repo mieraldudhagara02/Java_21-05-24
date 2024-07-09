@@ -1,12 +1,12 @@
 /*
-	Write a Java program to update specific array element by given element.
+	 Write a Java program to remove the third element from an array list.
 */
 
 package assignment_module_2;
 
 import java.util.ArrayList;
 
-public class Question_52 {
+public class Question_53 {
 	
 	public static void main(String[] args) {
 		
@@ -15,12 +15,13 @@ public class Question_52 {
 		arr.add("Miral");
 		arr.add("Nikul");
 		arr.add("Disha");
+		arr.add("Riya");
 		
 		System.out.println("ArrayList : " + arr);
 		
-		arr.set(0, "Miru");
+		arr.remove(3);
 		
-		System.out.println("Updated ArrayList : " + arr);
+		System.out.println("ArrayList after remove a 3rd element : " + arr);
 		
 	}
 
