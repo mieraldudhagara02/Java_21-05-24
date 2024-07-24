@@ -1,0 +1,141 @@
+1.	Select unique Job from EMP table.
+	---------------------------------
+->	SELECT DISTINCT Job FROM employee;
+
+
+2.	List the details of the EMP's in ascending order of the Deptno and descending of Jobs?
+	--------------------------------------------------------------------------------------
+->	SELECT * FROM employee ORDER BY DeptNo ASC,Job DESC;
+
+
+3.	Display all the unique job groups in the descending order?
+	----------------------------------------------------------
+->	SELECT DISTINCT Job FROM employee ORDER BY Job DESC;
+
+
+4.	List the EMP's who joined before 1981.
+	--------------------------------------
+->	SELECT * FROM employee WHERE HireDate<('1981-01-01');
+
+
+5.	List the EmpNo, EmpName, Sal, Daily sal of all emps in the asc order of Annual Salary (AnnSal).
+	---------------------------------------------------------------------------------------------
+->	SELECT EmpNo, EmpName, Sal, Sal/30, 12*Sal AnnSal FROM employee ORDER BY AnnSal ASC;
+
+
+*6.	List the EmpNo, EmpName, Sal, Exp of all EMP's working for Mgr 7369.
+	-------------------------------------------------------------------
+->	
+
+
+7.	Display all the details of the EMP's who’s Comm is more than their Sal?
+	-----------------------------------------------------------------------
+->	SELECT * FROM employee WHERE Comm>Sal;
+
+
+8.	List the EMP who are either ‘CLERK’ or ‘ANALYST’ in the Desc order.
+	--------------------------------------------------------------------
+->	SELECT * FROM employee WHERE Job='CLERK' OR Job='ANALYST' ORDER BY Job DESC;
+
+
+9.	List the EMP Whose Annual Sal ranging from 22000 and 45000.
+	-----------------------------------------------------------
+->	SELECT * FROM employee WHERE Sal*12 BETWEEN 22000 AND 45000;
+
+
+10.	List the EmpName those are starting with ‘S’ and with five characters.
+	----------------------------------------------------------------------
+->	SELECT * FROM employee WHERE EmpName LIKE 'S%' AND length(EmpName) = 5;
+
+
+11.	List the EMP whose EmpNo not starting with digit78.
+	---------------------------------------------------
+->	SELECT * FROM employee  WHERE EmpNo NOT LIKE '78%';
+
+
+12.	List all the Clerks of Deptno 20.
+	---------------------------------
+->	SELECT * FROM employee WHERE Job='CLERK' AND DeptNo='20';
+
+
+*13.	List the EMP who are senior to their own MGRS.
+	----------------------------------------------
+->	
+
+
+14.	List the EMP of Depto 20 who’s Jobs are same as DeptNo 10.
+	----------------------------------------------------------
+->	SELECT * FROM employee WHERE DeptNo='20' and Job IN (SELECT Job FROM employee WHERE DeptNo='10');
+
+
+15.	List the EMP who’s Sal is same as FORD or SMITH in desc order of Sal.
+	---------------------------------------------------------------------
+->	SELECT * FROM employee WHERE Sal IN (SELECT Sal FROM employee WHERE EmpName='SMITH' OR EmpName='FORD') ORDER BY Sal DESC;
+
+
+16.	List the EMP whose jobs same as SMITH or ALLEN.
+	-----------------------------------------------
+->	SELECT * FROM employee WHERE Job IN (SELECT Job FROM employee WHERE EmpName='SMITH' OR EmpName='ALLEN');
+
+
+17.	Any jobs of DeptNo 10 those that are not found in DeptNo 20.
+	------------------------------------------------------------
+->	SELECT * FROM employee WHERE DeptNo='10' AND Job NOT IN (SELECT Job FROM employee WHERE DeptNo='20');
+
+
+18.	Find the highest Sal of EMP table.
+	----------------------------------
+->	SELECT MAX(Sal) FROM employee;
+
+
+19.	Find details of highest paid employee.
+	--------------------------------------
+->	SELECT * FROM employee WHERE Sal IN (SELECT MAX(Sal) FROM employee);
+
+
+20.	Find the total Sal given to the MGR.
+	-----------------------------------
+->	SELECT SUM(Sal) FROM employee WHERE Job = 'MANAGER';
+
+
+21.	List the EMP whose names contains ‘A’.
+	--------------------------------------
+->	 SELECT * FROM employee WHERE EmpName LIKE '%A%';
+
+
+22.	Find all the EMP who earn the minimum Salary for each job wise in ascending order.
+	----------------------------------------------------------------------------------
+->	SELECT * FROM employee WHERE Sal IN (SELECT MIN(Sal) FROM employee GROUP BY Job) ORDER BY Sal ASC;
+
+
+23.	List the EMP whose Sal greater than Blake’s Sal.
+	------------------------------------------------
+->	SELECT * FROM employee WHERE Sal > (SELECT Sal FROM employee WHERE EmpName = 'BLAKE');
+
+
+*24.	Create view v1 to select EmpName, Job, DeptName, Loc whose DeptNo are same.
+	---------------------------------------------------------------------------
+->
+
+
+*25.	Create a procedure with DeptNo as input parameter to fetch EmpName and DeptName.
+	-------------------------------------------------------------------------------
+->
+
+
+26.	Add column Pin with bigint data type in table student.
+	------------------------------------------------------
+->	ALTER TABLE student ADD Pin BIGINT(10);
+
+
+27.	Modify the student table to change the SurName length from 14 to 40. 
+	------------------------------------------------------------------
+->	ALTER TABLE student CHANGE SurName SurName VARCHAR(40);
+
+	
+*28.	Create trigger to insert data in emp_log table whenever any update of sal in EMP table. You can set action as ‘New Salary’.
+	---------------------------------------------------------------------------------------------------------------------------
+->	
+	
+
+		
