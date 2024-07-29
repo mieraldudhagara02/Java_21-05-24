@@ -24,6 +24,7 @@ public class Question_49 {
 		{
 			System.out.println(i.next());
 		}
+		
 	}
 
 }

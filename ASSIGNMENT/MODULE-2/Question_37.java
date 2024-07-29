@@ -10,7 +10,19 @@ public class Question_37 {
 	
 	public static void main(String[] args) {
 		
-		
+		try
+		{
+			int[] m = new int[5];
+			m[5] = 30/0;
+		} 
+		catch (ArithmeticException e)
+		 {
+			System.out.println("Caught ArithmeticException: Cannot divide by zero.");
+		} 
+		catch (ArrayIndexOutOfBoundsException e) 
+		{
+			System.out.println("Caught ArrayIndexBoundsException: Array index is out of bounds. ");
+		} 
 		
 	}
 
