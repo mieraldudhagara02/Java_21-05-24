@@ -23,9 +23,9 @@
 ->	SELECT EmpNo, EmpName, Sal, Sal/30, 12*Sal AnnSal FROM employee ORDER BY AnnSal ASC;
 
 
-*6.	List the EmpNo, EmpName, Sal, Exp of all EMP's working for Mgr 7369.
+6.	List the EmpNo, EmpName, Sal, Experience of all EMP's working for Mgr 7369.
 	-------------------------------------------------------------------
-->	
+->	SELECT EmpName, EmpNo, Sal FROM employee WHERE Mgr='7369';
 
 
 7.	Display all the details of the EMP's who’s Comm is more than their Sal?
@@ -60,7 +60,7 @@
 
 *13.	List the EMP who are senior to their own MGRS.
 	----------------------------------------------
-->	
+->	empno = mgr
 
 
 14.	List the EMP of Depto 20 who’s Jobs are same as DeptNo 10.
@@ -93,9 +93,9 @@
 ->	SELECT * FROM employee WHERE Sal IN (SELECT MAX(Sal) FROM employee);
 
 
-20.	Find the total Sal given to the MGR.
+*20.	Find the total Sal given to the MGR.
 	-----------------------------------
-->	SELECT SUM(Sal) FROM employee WHERE Job = 'MANAGER';
+->	
 
 
 21.	List the EMP whose names contains ‘A’.
@@ -115,12 +115,21 @@
 
 *24.	Create view v1 to select EmpName, Job, DeptName, Loc whose DeptNo are same.
 	---------------------------------------------------------------------------
-->
+->	join
 
 
-*25.	Create a procedure with DeptNo as input parameter to fetch EmpName and DeptName.
+25.	Create a procedure with DeptNo as input parameter to fetch EmpName and DeptName.
 	-------------------------------------------------------------------------------
-->
+->	DELIMITER //
+
+	CREATE PROCEDURE viewData (INOUT DeptN int) 
+    
+    	BEGIN
+    		SELECT EmpName FROM employee WHERE DeptNo = DeptN;
+        	SELECT DeptName FROM dept WHERE DeptNo = DeptN;
+    	END //    
+
+	DELIMITER ;
 
 
 26.	Add column Pin with bigint data type in table student.
@@ -133,9 +142,19 @@
 ->	ALTER TABLE student CHANGE SurName SurName VARCHAR(40);
 
 	
-*28.	Create trigger to insert data in emp_log table whenever any update of sal in EMP table. You can set action as ‘New Salary’.
+28.	Create trigger to insert data in emp_log table whenever any update of sal in EMP table. You can set action as ‘New Salary’.
 	---------------------------------------------------------------------------------------------------------------------------
-->	
+->	DELIMITER $$
+
+	CREATE TRIGGER NewSal AFTER UPDATE ON employee FOR EACH ROW
+    
+    	BEGIN
+
+    	insert into emplog SET actionPerformed = 'deleted a new subscriber', Newsalary =  new.sal;
+    
+	END $$
+
+	DELIMITER //
 	
 
 		
